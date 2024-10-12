@@ -31,3 +31,15 @@ firstsixgenes
 
 ```
 
+## This chunk contains the codes for:
+1. Creating a column which is the mean of other columns
+```{r}
+expression$GTEX.1117F.0226.SM.5GZZ7 <- as.numeric(expression$GTEX.1117F.0226.SM.5GZZ7)
+expression$GTEX.1117F.0426.SM.5EGHI <- as.numeric(expression$GTEX.1117F.0426.SM.5EGHI)
+expression$GTEX.1117F.0526.SM.5EGHJ <- as.numeric(expression$GTEX.1117F.0526.SM.5EGHJ)
+
+expression$columnmeans <- rowMeans(expression[,2:4])
+head(expression)
+
+```
+
