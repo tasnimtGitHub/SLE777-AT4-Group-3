@@ -73,3 +73,18 @@ library(R.utils)
 library("seqinr")
 ```
 
+## This chunk contains codes for:
+1. Downloading the E.coli and Mycobacterium genomes
+2. Reading the files
+```{r}
+URL="https://ftp.ensemblgenomes.ebi.ac.uk/pub/bacteria/release-59/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655_gca_000005845/cds/Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.cds.all.fa.gz"
+download.file(URL,destfile="ecoli_cds.fa.gz")
+gunzip("ecoli_cds.fa.gz")
+cds <- seqinr::read.fasta("ecoli_cds.fa")
+URL = "https://ftp.ensemblgenomes.ebi.ac.uk/pub/bacteria/release-59/fasta/bacteria_4_collection/mycobacterium_tuberculosis_gca_001318445/cds/Mycobacterium_tuberculosis_gca_001318445.6505_5_10.cds.all.fa.gz"
+download.file(URL,destfile="mycobacterium_cds.fa.gz")
+gunzip("mycobacterium_cds.fa.gz")
+cds_mycobacterium <- seqinr::read.fasta("mycobacterium_cds.fa")
+
+```
+
