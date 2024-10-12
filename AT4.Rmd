@@ -190,3 +190,40 @@ median(lenm)
 
 ```
 
+
+This chunk contains code for:
+1. Creating barplots for nucleotide and amino acid
+2. Calculating the frequency of DNA bases and total protein
+```{r}
+E.coliDNA <- unlist(cds)
+dna_composition_e.coli <- count(E.coliDNA,1)
+MycobacteriumDNA <- unlist(cds_mycobacterium)
+dna_composition_mycobacterium <- count(MycobacteriumDNA,1)
+par(mfrow=c(1,2))
+barplot(dna_composition_e.coli,main="E.coli")
+barplot(dna_composition_mycobacterium,main="Mycobacterium")
+
+prot <- lapply(cds, translate)
+aa <- unique(prot[[2]])
+aa <- aa[aa != "*"]
+length(aa)
+protm <- lapply(cds_mycobacterium, translate)
+am <- unique(protm[[2]])
+am <- am[am != "*"]
+length(am)
+E.coliProt <- unlist (prot)
+prot_composition_e.coli <- count(E.coliProt,wordsize=1,alphabet=aa)
+MycobacteriumProt <- unlist (protm)
+prot_composition_mycobacterium <- count(MycobacteriumProt,wordsize=1,alphabet=am)
+par(mfrow=c(1,2))
+barplot(prot_composition_e.coli,main="E.coli")
+barplot(prot_composition_mycobacterium,main="Mycobacterium")
+
+dna_composition_e.coli/sum(dna_composition_e.coli)
+dna_composition_mycobacterium/sum(dna_composition_mycobacterium)
+
+prot_composition_e.coli/sum(prot_composition_e.coli )
+prot_composition_mycobacterium/sum(prot_composition_mycobacterium)
+
+```
+
