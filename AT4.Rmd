@@ -76,6 +76,19 @@ growth <- read.table(URL,sep=",",header=TRUE)
 growth
 ```
 
+## This chunk contains code for:
+1. Calculating the mean and standard deviation of start and end study.
+```{r}
+growth_numeric <- growth[-1,]
+growth_numeric$Circumf_2005_cm <- as.numeric(growth_numeric$Circumf_2005_cm)
+growth_numeric$Circumf_2010_cm <- as.numeric(growth_numeric$Circumf_2010_cm)
+growth_numeric$Circumf_2015_cm <- as.numeric(growth_numeric$Circumf_2015_cm)
+growth_numeric$Circumf_2020_cm <- as.numeric(growth_numeric$Circumf_2020_cm)
+colMeans(growth_numeric[,3, drop=FALSE])
+colMeans(growth_numeric[,6, drop=FALSE])
+sd(growth_numeric[,3])
+sd(growth_numeric[,6])
+```
 
 
 
