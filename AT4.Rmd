@@ -51,3 +51,11 @@ top_10_genes <- head(expression_sorted, 10)
 top_10_genes
 ```
 
+## This chunk contains the code for:
+1. Determining the Number of genes mean <10
+```{r}
+lessexpressed <- subset(expression, columnmeans < 10)
+lessexpressed
+
+```
+
