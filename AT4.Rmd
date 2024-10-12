@@ -87,4 +87,18 @@ gunzip("mycobacterium_cds.fa.gz")
 cds_mycobacterium <- seqinr::read.fasta("mycobacterium_cds.fa")
 
 ```
+## This chunk contains codes for:
+1. Counting the lengths
+2. Creating a table of the length
+```{r}
+length(cds)
+length(cds_mycobacterium)
+table <- data.frame(
+  E.coli = 4239,
+  Mycobacterium = 4741
+)
+print(table)
+
+
+```
 
