@@ -105,6 +105,9 @@ print(table)
 1. Calculating total Coding DNA
 2. Creating a table of Total Coding DNA
 ```{r}
+head(summary(cds))
+head(summary(cds_mycobacterium))
+
 len <- as.numeric(summary(cds)[,1])
 lenm <- as.numeric(summary(cds_mycobacterium)[,1])
 sum(len)
