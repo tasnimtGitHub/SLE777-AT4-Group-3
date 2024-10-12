@@ -101,7 +101,7 @@ boxplot(TC2005,TC2020,
 ```
 
 ## This chunk contains code for:
-1. 
+1. Calculating the mean growth
 ```{r}
 northeast <- subset(growth_numeric,Site == "northeast")
 southwest <- subset(growth_numeric,Site == "southwest")
@@ -109,6 +109,18 @@ southwest <- subset(growth_numeric,Site == "southwest")
 mean(northeast$Difference <- northeast$Circumf_2020_cm - northeast$Circumf_2010_cm)
 mean(southwest$Difference <- southwest$Circumf_2020_cm - southwest$Circumf_2010_cm)
 ```
+
+## This chunk contains code for:
+1. Estimating the p value by executing t.test
+```{r}
+growth_numeric$growth_10_year <- growth_numeric$Circumf_2020_cm - growth_numeric$Circumf_2010_cm
+growth_northeast <- subset(growth_numeric, Site == "northeast")
+growth_southwest <- subset(growth_numeric, Site == "southwest")
+t_test_result <- t.test(growth_northeast$growth_10_year, growth_southwest$growth_10_year)
+t_test_result
+
+```
+
 
 
 ## This chunk contains code for:
