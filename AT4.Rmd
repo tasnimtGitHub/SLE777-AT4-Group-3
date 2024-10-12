@@ -101,4 +101,18 @@ print(table)
 
 
 ```
+## This chunk contains code for:
+1. Calculating total Coding DNA
+2. Creating a table of Total Coding DNA
+```{r}
+len <- as.numeric(summary(cds)[,1])
+lenm <- as.numeric(summary(cds_mycobacterium)[,1])
+sum(len)
+sum(lenm)
+table <- data.frame(
+  E.coli = 3978528,
+  Mycobacterium = 3076728
+)
+print(table)
+```
 
