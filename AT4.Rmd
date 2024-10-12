@@ -43,3 +43,11 @@ head(expression)
 
 ```
 
+## This chunk contains the codes for:
+1. Determining the 10 genes with highest expressed mean.
+```{r}
+expression_sorted <- expression[order(-expression$columnmeans), ]
+top_10_genes <- head(expression_sorted, 10)
+top_10_genes
+```
+
