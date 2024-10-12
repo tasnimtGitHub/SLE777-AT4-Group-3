@@ -100,6 +100,15 @@ boxplot(TC2005,TC2020,
         names = c("2005","2020"))
 ```
 
+## This chunk contains code for:
+1. 
+```{r}
+northeast <- subset(growth_numeric,Site == "northeast")
+southwest <- subset(growth_numeric,Site == "southwest")
+
+mean(northeast$Difference <- northeast$Circumf_2020_cm - northeast$Circumf_2010_cm)
+mean(southwest$Difference <- southwest$Circumf_2020_cm - southwest$Circumf_2010_cm)
+```
 
 
 ## This chunk contains code for:
