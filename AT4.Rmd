@@ -176,3 +176,17 @@ table <- data.frame(
 print(table)
 ```
 
+## This chunk contains codes for:
+1. Creating a boxplot
+2. Determining the mean and media 
+```{r}
+par(mfrow=c(1,2)) 
+boxplot(len,ylab="sequence length (bp)",main="E.coli")
+boxplot(lenm,ylab="sequence length (bp)",main="Meycobacterium")
+mean(len)
+mean(lenm)
+median(len)
+median(lenm)
+
+```
+
