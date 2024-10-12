@@ -59,4 +59,9 @@ lessexpressed
 
 ```
 
+## This chunk contains the code for:
+1. Creating histogram of mean values
+```{r}
+hist(expression$columnmeans,xlab="gene expression",main="mean expression")
+```
 
