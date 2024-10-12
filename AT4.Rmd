@@ -65,6 +65,19 @@ lessexpressed
 hist(expression$columnmeans,xlab="gene expression",main="mean expression")
 ```
 
+## This chunk contains the code for:
+1. Downloading growth_data.csv file
+2. Reading the csv file
+3. Showing the name of columns
+```{r}
+URL="https://raw.githubusercontent.com/ghazkha/Assessment4/refs/heads/main/growth_data.csv"
+download.file(URL,destfile="growth_data.csv")
+growth <- read.table(URL,sep=",",header=TRUE)
+growth
+```
+
+
+
 
 ## This chunk contains code for:
 1. installing packages
