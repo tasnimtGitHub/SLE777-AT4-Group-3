@@ -65,3 +65,11 @@ lessexpressed
 hist(expression$columnmeans,xlab="gene expression",main="mean expression")
 ```
 
+
+## This chunk contains code for:
+1. installing packages
+```{r}
+library(R.utils)
+library("seqinr")
+```
+
