@@ -89,6 +89,16 @@ colMeans(growth_numeric[,6, drop=FALSE])
 sd(growth_numeric[,3])
 sd(growth_numeric[,6])
 ```
+## This chunk contains code for:
+1. Boxplot of start and end of both sites
+```{r}
+TC2005 <- growth_numeric[,grep("Circumf_2005_cm",colnames(growth_numeric))]
+TC2020 <- growth_numeric[,grep("Circumf_2020_cm",colnames(growth_numeric))]
+boxplot(TC2005,TC2020,
+        ylab="circumference",
+        main="growth",
+        names = c("2005","2020"))
+```
 
 
 
