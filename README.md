@@ -1,11 +1,5 @@
----
-title: "Integrated Analysis of Gene Expression and Biological Sequences in R"
-author: 
-  - Tasfia Tasnim
-  - Tanjila Tabassum
-  - Razieh Fathinezhad
-output: html_document
----
+## Integrated Analysis of Gene Expression and Biological Sequences in R
+
 
 ## Project Objective
 
