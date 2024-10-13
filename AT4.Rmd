@@ -287,4 +287,138 @@ par(mfrow=c(1,2))
  las=2,names.arg = codons,col=rainbow(length(RSCU_Mycobacterium)),ylab="RSCU")
 
 ```
+## This chunk contains code for:
+1. Determining K-mer value of 3-5
+2. Constructing barplot of over and under represented k-mer profiling
+```{r}
+#E.coli
+prots <- unlist(prot)
+
+mycounts3.e <- count(prots,wordsize=3,alphabet=aa)
+overrepresented_kmers_3_e <- sort(mycounts3.e, decreasing = TRUE)
+top_10_overrepresented_3_e <- head(overrepresented_kmers_3_e, 10)
+underrepresented_kmers_3_e <- sort(mycounts3.e, decreasing = FALSE)
+top_10_underrepresented_3_e <- head(underrepresented_kmers_3_e, 10)
+print(top_10_overrepresented_3_e)
+print(top_10_underrepresented_3_e)
+
+mycounts4.e <- count(prots,wordsize=4,alphabet=aa)
+overrepresented_kmers_4_e <- sort(mycounts4.e, decreasing = TRUE)
+top_10_overrepresented_4_e <- head(overrepresented_kmers_4_e, 10)
+underrepresented_kmers_4_e <- sort(mycounts4.e, decreasing = FALSE)
+top_10_underrepresented_4_e <- head(underrepresented_kmers_4_e, 10)
+print(top_10_overrepresented_4_e)
+print(top_10_underrepresented_4_e)
+
+mycounts5.e <- count(prots,wordsize=5,alphabet=aa)
+overrepresented_kmers_5_e <- sort(mycounts5.e, decreasing = TRUE)
+top_10_overrepresented_5_e <- head(overrepresented_kmers_5_e, 10)
+underrepresented_kmers_5_e <- sort(mycounts5.e, decreasing = FALSE)
+top_10_underrepresented_5_e <- head(underrepresented_kmers_5_e, 10)
+print(top_10_overrepresented_5_e)
+print(top_10_underrepresented_5_e)
+
+#Mycobacterium
+protsm <- unlist(protm)
+
+mycounts3.m <- count(protsm,wordsize=3,alphabet=aa)
+overrepresented_kmers_3_m <- sort(mycounts3.m, decreasing = TRUE)
+top_10_overrepresented_3_m <- head(overrepresented_kmers_3_m, 10)
+underrepresented_kmers_3_m <- sort(mycounts3.m, decreasing = FALSE)
+top_10_underrepresented_3_m <- head(underrepresented_kmers_3_m, 10)
+print(top_10_overrepresented_3_m)
+print(top_10_underrepresented_3_m)
+
+mycounts4.m <- count(protsm,wordsize=4,alphabet=aa)
+overrepresented_kmers_4_m <- sort(mycounts4.m, decreasing = TRUE)
+top_10_overrepresented_4_m <- head(overrepresented_kmers_4_m, 10)
+underrepresented_kmers_4_m <- sort(mycounts4.m, decreasing = FALSE)
+top_10_underrepresented_4_m <- head(underrepresented_kmers_4_m, 10)
+print(top_10_overrepresented_4_m)
+print(top_10_underrepresented_4_m)
+
+mycounts5.m <- count(protsm,wordsize=5,alphabet=aa)
+overrepresented_kmers_5_m <- sort(mycounts5.m, decreasing = TRUE)
+top_10_overrepresented_5_m <- head(overrepresented_kmers_5_m, 10)
+underrepresented_kmers_5_m <- sort(mycounts5.m, decreasing = FALSE)
+top_10_underrepresented_5_m <- head(underrepresented_kmers_5_m, 10)
+print(top_10_overrepresented_5_m)
+print(top_10_underrepresented_5_m)
+
+# k=3 plots
+par(mfrow = c(2, 1))
+
+overrepresented_counts <- c(as.numeric(top_10_overrepresented_3_e), as.numeric(top_10_overrepresented_3_m))
+overrepresented_kmers <- c(names(top_10_overrepresented_3_e), names(top_10_overrepresented_3_m))
+organism_labels <- rep(c("E. coli", "Mycobacterium"), each = 10)
+
+barplot(overrepresented_counts, 
+        names.arg = overrepresented_kmers, 
+        col = c("blue", "red")[as.numeric(factor(organism_labels))],
+        main = "Overrepresented K-mers",
+        ylab = "Count",
+        las = 2)
+
+underrepresented_counts <- c(as.numeric(top_10_underrepresented_3_e), as.numeric(top_10_underrepresented_3_m))
+underrepresented_kmers <- c(names(top_10_underrepresented_3_e), names(top_10_underrepresented_3_m))
+
+barplot(underrepresented_counts, 
+        names.arg = underrepresented_kmers, 
+        col = c("blue", "red")[as.numeric(factor(organism_labels))],
+        main = "Underrepresented K-mers",
+        ylab = "Count",
+        las = 2)
+
+# k=4 plots
+par(mfrow = c(2, 1))
+
+overrepresented_counts_4 <- c(as.numeric(top_10_overrepresented_4_e), as.numeric(top_10_overrepresented_4_m))
+overrepresented_kmers_4 <- c(names(top_10_overrepresented_4_e), names(top_10_overrepresented_4_m))
+organism_labels_4 <- rep(c("E. coli", "Mycobacterium"), each = 10)
+
+barplot(overrepresented_counts_4, 
+        names.arg = overrepresented_kmers_4, 
+        col = c("blue", "red")[as.numeric(factor(organism_labels_4))],
+        main = "Overrepresented 4-mers",
+        ylab = "Count",
+        las = 2)
+
+underrepresented_counts_4 <- c(as.numeric(top_10_underrepresented_4_e), as.numeric(top_10_underrepresented_4_m))
+underrepresented_kmers_4 <- c(names(top_10_underrepresented_4_e), names(top_10_underrepresented_4_m))
+
+barplot(underrepresented_counts_4, 
+        names.arg = underrepresented_kmers_4, 
+        col = c("blue", "red")[as.numeric(factor(organism_labels_4))],
+        main = "Underrepresented 4-mers",
+        ylab = "Count",
+        las = 2)
+
+# k=5 plots
+par(mfrow = c(2, 1))
+
+overrepresented_counts_5 <- c(as.numeric(top_10_overrepresented_5_e), as.numeric(top_10_overrepresented_5_m))
+overrepresented_kmers_5 <- c(names(top_10_overrepresented_5_e), names(top_10_overrepresented_5_m))
+organism_labels_5 <- rep(c("E. coli", "Mycobacterium"), each = 10)
+
+barplot(overrepresented_counts_5, 
+        names.arg = overrepresented_kmers_5, 
+        col = c("blue", "red")[as.numeric(factor(organism_labels_5))],
+        main = "Overrepresented 5-mers",
+        ylab = "Count",
+        las = 2)
+
+underrepresented_counts_5 <- c(as.numeric(top_10_underrepresented_5_e), as.numeric(top_10_underrepresented_5_m))
+underrepresented_kmers_5 <- c(names(top_10_underrepresented_5_e), names(top_10_underrepresented_5_m))
+
+barplot(underrepresented_counts_5, 
+        names.arg = underrepresented_kmers_5, 
+        col = c("blue", "red")[as.numeric(factor(organism_labels_5))],
+        main = "Underrepresented 5-mers",
+        ylab = "Count",
+        las = 2)
+```
+## The session info
+```{r}
+sessionInfo()
+```
 
