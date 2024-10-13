@@ -86,7 +86,6 @@ To solve the questions, consider setting up a virtual environment using the foll
 To download the coding DNA sequences for E. coli and Mycobacterium tuberculosis, you can use the following R commands. These commands download the files from the Ensembl genome database:
 
 
-```R
 # Set the URLs for the CDS files
 ecoli_url <- "https://ftp.ensemblgenomes.ebi.ac.uk/pub/bacteria/release-59/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655_gca_000005845/cds/Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.cds.all.fa.gz"
 mtb_url <- "https://ftp.ensemblgenomes.ebi.ac.uk/pub/bacteria/release-59/fasta/bacteria_4_collection/mycobacterium_tuberculosis_gca_001318445/cds/Mycobacterium_tuberculosis_gca_001318445.6505_5_10.cds.all.fa.gz"
@@ -97,19 +96,10 @@ mtb_url <- "https://ftp.ensemblgenomes.ebi.ac.uk/pub/bacteria/release-59/fasta/b
 Load the desired R script.
 Click on the Run button next to the code or use the command line to execute it.
 View Outputs
-Outputs include:
 
-Tables of CDS lengths
-Codon usage tables
-K-mer counts
-Various plots (bar charts, box plots)
-You can view plots directly in RStudio, or save them as image files using the following commands: # Example of saving a plot
-png("output_plot.png")
-plot(data)  # Replace 'data' with your plotting code
-dev.off()  # Close the device
-How to Raise Issues or Get Help
+## How to Raise Issues or Get Help
 
-## If you encounter issues or have questions, you can:
+If you encounter issues or have questions, you can:
 
 Navigate to the repository's Issues tab and create a new issue, providing a detailed description of the problem along with error messages or steps to reproduce the issue.
 Leave comments on the relevant GitHub repository sections for help or suggestions.
